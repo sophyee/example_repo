@@ -30,14 +30,5 @@ samp = rnorm(100)
 length(samp)
 ```
 
-# Section 2
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
-Rounded to 2 digits, `r round(mean(samp), 2)`
-
-In the above example, you can *use backticks '' around "r _something_"* and it
-will run that command and output the results as text (in this case, we did _mean(samp)_).
-
-Use _round(mean(samp), 2)_ to round to 2 digits:
 
