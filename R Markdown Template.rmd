@@ -1,0 +1,72 @@
+---
+title: "Simple document"
+output: html_document #what output do you want#
+---
+
+**Refer back to the lecture website for more details/tools!**
+
+Load in your packages first, R Markdown starts from scratch every time 
+```{r}
+library(tidyverse)
+```
+
+I'm an R Markdown document! Use "Knit" to output everything!
+
+# Section 1
+Hashtags create a new section (# Section 1)
+
+**Two asterisks** on either side of text bolds,
+_Two underscores_ on either side of text italicizes.
+
+Add an extra blank line in between for a new line
+  
+Here's a **code chunk** that samples from 
+a _normal distribution_:
+
+Three backticks ' before r in squiggly parentheses means this is R code,
+which you can run!
+```{r}
+samp = rnorm(100)
+length(samp)
+```
+
+# Section 2
+
+I can take the mean of the sample, too!
+The mean is `r mean(samp)`.
+Rounded to 2 digits, `r round(mean(samp), 2)`
+
+In the above example, you can *use backticks '' around "r _something_"* and it
+will run that command and output the results as text (in this case, we did _mean(samp)_).
+
+Use _round(mean(samp), 2)_ to round to 2 digits:
+
+
+# Section 3
+
+This is going to make a plot!
+
+_Option + command + i_ will create an R markdown code chunk (ie three backticks {R}).
+
+```{r ggplot histogram}
+plot_df =
+  tibble(
+    x = rnorm(n = 1000),
+    y = 1 + 2 * x + rnorm(n = 1000)
+  )
+
+ggplot(plot_df, aes(x = x, y=y)) + geom_point()
+```
+
+For R Markdown, you need to load all the packages you need before running R code,
+For the above code for example, you need to reload the library(tidyverse) so it
+can run tibble and ggplot. **Load your packages in a separate codechunk at the very
+beginning of the doc!**
+
+The Render tab (by the Consol and Terminal tabs) shows the percentage breakdown
+and organization of the R Markdown chunks.
+
+**Naming your codechunks can help you keep track of them, the names will show up in the Render tab**
+
+**Name your codechunk at the beginning of the codechunk, in the curly brackets after r**
+
